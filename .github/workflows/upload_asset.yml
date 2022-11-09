@@ -1,0 +1,21 @@
+name: Upload Asset to Release
+
+on: 
+  release:
+    types:
+      - created
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+     steps:
+      - name: upload package ref
+        uses: actions/upload-release-asset@v1.0.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ github.event.release.upload_url }}
+          asset_path: https://github.com/orgs/actions-on-packages/packages/container/test-immutability-ghcr/46431341?tag=5.0.1
+          asset_name: typescript-action-pkg
+          asset_content_type: application/octet-stream
