@@ -8,8 +8,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    
-     steps:
+    steps:
       - name: upload package ref
         uses: actions/upload-release-asset@v1.0.1
         env:
